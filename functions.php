@@ -20,10 +20,21 @@ function load_scripts(){
 }
 add_action('wp_enqueue_scripts', 'load_scripts');
 
-//Registrar os menus
-register_nav_menus(
-    array(
-        'my_main_menu' => 'Main Menu',
-        'my_main_foote' => 'Footer Menu'
-    )
-);
+//Função de configuração do tema
+function projetoWordpress_config(){
+    //Registrar os menus
+    register_nav_menus(
+        array(
+            'my_main_menu' => 'Main Menu',
+            'my_main_foote' => 'Footer Menu'
+        )
+    );
+
+    $args = array(
+      'height' => 225,
+      'width' => 1920
+    );
+    add_theme_support('custom-header', $args);
+    add_theme_support('post-thumbnails');
+}
+add_action('after_setup_theme', 'projetoWordpress_config', 0);

@@ -1,4 +1,8 @@
 <?php get_header(); ?>
+
+<img class="img-fluid" src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>"
+     width="<?php echo get_custom_header()->width; ?>" alt="" />
+
         <div class="content-area">
             <main>
                 <section class="slide">
@@ -23,13 +27,7 @@
                                         while (have_posts()):the_post();
                                 ?>
 
-                                 <article>
-                                    <h2><?php the_title(); ?></h2>
-                                     <p>Published in <?php echo get_the_date(); ?> by <?php the_author_link(); ?></p>
-                                     <p>Catedories: <?php the_category( ' ' ); ?></p>
-                                     <p><?php the_tags( 'Tags: ', ' , '); ?></p>
-                                     <?php the_content(); ?>
-                                 </article>
+                                <?php get_template_part('template-parts/content'); ?>
 
                                 <?php
                                     endwhile;
