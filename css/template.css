@@ -1,4 +1,5 @@
-.top-bar{
+/*Top BAr Section*/
+.social-media-icons{
     background: green;
     height: 30px;
 }
@@ -6,6 +7,7 @@
     background: yellow;
     height: 30px;
 }
-.menu ul li{
+/*Menus*/
+.main-menu ul li, .footer-menu ul li{
     display: inline;
 }

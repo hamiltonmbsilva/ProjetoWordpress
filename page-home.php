@@ -1,3 +1,5 @@
+
+
 <?php get_header(); ?>
         <div class="content-area">
             <main>
@@ -23,13 +25,7 @@
                                         while (have_posts()):the_post();
                                 ?>
 
-                                 <article>
-                                    <h2><?php the_title(); ?></h2>
-                                     <p>Published in <?php echo get_the_date(); ?> by <?php the_author_link(); ?></p>
-                                     <p>Catedories: <?php the_category( ' ' ); ?></p>
-                                     <p><?php the_tags( 'Tags: ', ' , '); ?></p>
-                                     <?php the_content(); ?>
-                                 </article>
+                                <p>COnteudo vindo do arquivo home.php</p>
 
                                 <?php
                                     endwhile;
