@@ -20,7 +20,19 @@
                                 <?php get_template_part('template-parts/content', get_post_format()); ?>
 
                                 <?php
-                                    endwhile;
+                                        endwhile;
+                                ?>
+
+                                    <div class="row">
+                                        <div class="pages text-left col-6">
+                                            <?php previous_post_link("<< Newer posts"); ?>
+                                        </div>
+                                        <div class="pages text-right col-6">
+                                            <?php next_post_link("Older posts >>"); ?>
+                                        </div>
+                                    </div>
+
+                                 <?php
                                     else:
                                 ?>
                                 <p>There's nothing yet to be displayed ... </p>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Curso Wordepress</title>
+    <title><?php wp_title(); ?></title>
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -12,7 +12,7 @@
         <div class="container">
             <div class="row">
                 <div class="social-media-icons col-xl-4 col-sm-4 col-4">Icones Sociais</div>
-                <div class="search col-xl-4 col-sm-4 col-4 text-right">Pesquisa</div>
+                <div class="search col-xl-4 col-sm-4 col-4 text-right"><?php get_search_form(); ?></div>
                 <div class="login-topo col-xl-2 col-sm-2 col-2 text-right"><a href="/aula/wp-content/themes/projetoWordpress/admin/login.php">Login</a></div>
                 <div class="cadastrar col-xl-2 col-sm-2 col-2 text-right"><a href="/aula/wp-content/themes/projetoWordpress/admin/users-create.php">Cadastrar Usuario</a></div>
             </div>

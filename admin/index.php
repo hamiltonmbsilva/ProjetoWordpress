@@ -1,11 +1,21 @@
-<?php 
+<?php
+require 'config.php';
 session_start();
 
 if(isset($_SESSION['id']) && empty($_SESSION['id']) == false){
-    echo "Area restrita.....";
+
+if (isset($_POST["submit"])) {
+
+    $titulo = addslashes($_POST['titulo']);
+    $comentario = addslashes($_POST['texto']);
 
 
-    
+    $sql = "INSERT INTO wpaula_posts SET post_title ='$titulo', post_content = '$comentario' ";
+
+    $db->query($sql);
+
+}
+
 }else{
     header("Location: login.php");
 }
@@ -47,23 +57,19 @@ if(isset($_SESSION['id']) && empty($_SESSION['id']) == false){
         <div class="col-md-12">
             <div class="box box-success">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Novo Usuário</h3>
+                    <h3 class="box-title">Novo Post</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form role="form"  method="post">
+                <form  method="post">
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="nome">Nome</label>
-                            <input type="text" class="form-control" id="desperson" name="nome" placeholder="Digite o nome">
+                            <label for="titulo">Titulo do Post</label>
+                            <input type="text" class="form-control" name="titulo" placeholder="Digite o Titulo do Post">
                         </div>
                         <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" class="form-control" id="desemail" name="email" placeholder="Digite o e-mail">
-                        </div>
-                        <div class="form-group">
-                            <label for="senha">Senha</label>
-                            <input type="password" class="form-control" id="despassword" name="senha" placeholder="Digite a senha">
+                            <label for="texto">Texto</label>
+                            <textarea  class="form-control"  name="texto" maxlength="2500" rows="7" placeholder="Digite o texto"></textarea>
                         </div>
 
                     </div>
@@ -71,6 +77,8 @@ if(isset($_SESSION['id']) && empty($_SESSION['id']) == false){
                     <div class="box-footer">
                         <button type="submit" class="btn btn-success">Cadastrar</button>
                     </div>
+
+<!--                    <input type="submit"  name="submit" id="botao" value="Enviar" onclick="hgsubmit()" />-->
                 </form>
             </div>
         </div>
