@@ -61,7 +61,7 @@ if (isset($_POST["submit"])) {
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form  method="post">
+                <form  method="post" action="http://localhost/aula/wp-admin/post.php">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="titulo">Titulo do Post</label>
@@ -83,6 +83,9 @@ if (isset($_POST["submit"])) {
             </div>
         </div>
     </div>
+
+
+
 
 </section>
 <!-- /.content -->

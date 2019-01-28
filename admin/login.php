@@ -13,7 +13,13 @@ if (isset($_POST['email']) && empty($_POST['email'])==false){
 
             $_SESSION['id'] = $dado{'id'};
 
-            header("Location: index.php");
+            //Aqui chama a pagina index.php da area Administrativa, so que não consegui salvar usando por aqui o post
+          header("Location: index.php");
+
+            //Aqui a tela denovo post do wordpress
+//            header("Location:/aula/wp-admin/post-new.php");
+
+
         }
 }
 
