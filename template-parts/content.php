@@ -4,7 +4,8 @@
  * User: Hamilton
  * Date: 26/01/2019
  * Time: 15:21
- */?>
+ */
+?>
 
 <article <?php post_class(); ?>>
 
