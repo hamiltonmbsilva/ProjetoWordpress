@@ -11,8 +11,10 @@
     <section class="top-bar">
         <div class="container">
             <div class="row">
-                <div class="social-media-icons col-xl-9 col-sm-7 col-6">Icones Sociais</div>
-                <div class="search col-xl-3 col-sm-5 col-6 text-right">Pesquisa</div>
+                <div class="social-media-icons col-xl-4 col-sm-4 col-4">Icones Sociais</div>
+                <div class="search col-xl-4 col-sm-4 col-4 text-right">Pesquisa</div>
+                <div class="login-topo col-xl-2 col-sm-2 col-2 text-right"><a href="/aula/wp-content/themes/projetoWordpress/admin/login.php">Login</a></div>
+                <div class="cadastrar col-xl-2 col-sm-2 col-2 text-right"><a href="/aula/wp-content/themes/projetoWordpress/admin/users-create.php">Cadastrar Usuario</a></div>
             </div>
         </div>
 

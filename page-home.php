@@ -10,7 +10,38 @@
                 </section>
                 <section class="services">
                     <div class="container">
-                        <div class="row">Serviços</div>
+
+                        <h1>Our Services</h1>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="services-item">
+                                    <?php
+                                        if (is_active_sidebar('services-1')){
+                                            dynamic_sidebar('services-1');
+                                        }
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="services-item">
+                                    <?php
+                                    if (is_active_sidebar('services-2')){
+                                        dynamic_sidebar('services-2');
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="services-item">
+                                    <?php
+                                    if (is_active_sidebar('services-3')){
+                                        dynamic_sidebar('services-3');
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </section>
                 <section class="middle-area">
@@ -20,21 +51,52 @@
                                 <?php get_sidebar('home'); ?>
 
                             <div class="news col-md-8">
-                                <?php
-                                //Se houver algum post
-                                    if (have_posts()):
-                                        //Enquanto houver podsts, mostre-os para gente
-                                        while (have_posts()):the_post();
-                                ?>
+                                <div class="container">
+                                    <h1>Latest News</h1>
+                                    <div class="row">
+                                        <?php
+                                            $destaque = new WP_Query('post_type=post&posts_per_page=1&cat=3,5');
+                                            if ($destaque->have_posts()):
+                                                while ($destaque->have_posts()): $destaque->the_post();
+                                            ?>
+                                        <div class="col-12">
+                                            <?php get_template_part('template-parts/content', 'featured'); ?>
+                                        </div>
 
-                                <p>COnteudo vindo do arquivo home.php</p>
+                                        <?php
+                                                endwhile;
+                                                wp_reset_postdata();
+                                            endif;
 
-                                <?php
-                                    endwhile;
-                                    else:
-                                ?>
-                                <p>There's nothing yet to be displayed ... </p>
-                                <?php endif; ?>
+
+                                            //Segundo loop
+                                            $args = array(
+                                                'post_type' => 'post',
+                                                'post_per_page' => 2,
+                                                'category__not_in' => array(4),
+                                                'category__in' => array( 3, 5 ),
+                                                'offset' => 1
+                                            );
+                                            $segundario = new WP_Query($args);
+
+                                            if ( $segundario->have_posts()):
+                                                while ( $segundario->have_posts()):  $segundario->the_post();
+                                                    ?>
+
+                                                    <div class="col-sm-6">
+                                                        <?php get_template_part('template-parts/content', 'secondary'
+                                                        ); ?>
+                                                    </div>
+
+                                                <?php
+                                                endwhile;
+                                                wp_reset_postdata();
+                                            endif;
+
+                                        ?>
+
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
