@@ -36,5 +36,38 @@ function projetoWordpress_config(){
     );
     add_theme_support('custom-header', $args);
     add_theme_support('post-thumbnails');
+    add_theme_support('post-formats', array(
+        'video',
+        'image'
+    ));
 }
 add_action('after_setup_theme', 'projetoWordpress_config', 0);
+
+add_action('widgets_init','projetoWordepress_sidebars');
+
+function projetoWordepress_sidebars(){
+
+    register_sidebar(
+      array(
+          'name' => 'Home Page Sidebar',
+          'id' => 'sidebar-1',
+          'description' => 'Sidebar to be used on Home Page',
+          'before_widget' => '<div class="widget-wrapper">',
+          'after_widget' => '</div>',
+          'before_title' => '<h2 class="widget-title">',
+          'after_title' => '</h2>'
+      )
+    );
+
+    register_sidebar(
+        array(
+            'name' => 'Blog Sidebar',
+            'id' => 'sidebar-2',
+            'description' => 'Sidebar to be used on Blog Page',
+            'before_widget' => '<div class="widget-wrapper">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2 class="widget-title">',
+            'after_title' => '</h2>'
+        )
+    );
+}
